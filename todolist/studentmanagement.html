@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Smart students Management</h2>
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type = "text" id="email" placeholder="Enter email">
+    <input type="number"id="marks" placeholder="Enter marks">
+    <button onclick="addStudent()">Add Student</button>
+    <h2> Students list </h2>
+    <ul id="StudentList"></ul>
+    <script>
+        let students = [];
+        let emailSet= new Set();
+        let gradeMap=new Map();
+        function addStudent(){
+            try{
+                debugger;
+                const name=document.getElementById("name").value;
+                const email=document.getElementById("email").value;
+                const marks=Number(document.getElementById("marks").value);
+                   const emailpatter=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                   if(!emailPatter.test(email)){
+                    throw new error("invalid email format");
+                   }
+            }
+        }
+    </script>
+</body>
+</html>

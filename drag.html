@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag Drop</title>
+</head>
+<body>
+
+    <div id="box" draggable="true" 
+         style="width: 100px; height: 100px; background-color: red;">
+    </div>
+
+    <div id="drop" 
+         style="width: 200px; height: 200px; border: 2px dashed black; margin-top: 20px;">
+    </div>
+
+    <script>
+        const box = document.getElementById("box");
+        const drop = document.getElementById("drop");
+
+        box.addEventListener("dragstart", function(e){
+            e.dataTransfer.setData("text", "box");
+        });
+
+        // IMPORTANT: use dragover (not dragger)
+        drop.addEventListener("dragover", function(e){
+            e.preventDefault();   // allow drop
+        });
+
+        drop.addEventListener("drop", function(e){
+            e.preventDefault();
+            let data = e.dataTransfer.getData("text");
+            drop.appendChild(document.getElementById(data));
+        });
+    </script>
+
+</body>
+</html>

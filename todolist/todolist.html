@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+<body>
+    <input id="taskInput">
+    <button onclick="add()">Add</button>
+    <ul id="list"></ul>
+    <script>
+        let tasks = []; 
+        function add(){
+            const input = document.getElementById("taskInput");
+            const value = input.value;
+            if(value.trim() === "") return;
+            tasks.push(value);
+            input.value = "";
+            show();
+        }
+        function show(){
+            const list = document.getElementById("list");
+            list.innerHTML = "";
+            for(let i = 0; i < tasks.length; i++){
+                list.innerHTML += "<li>" + tasks[i] + "</li>";
+            }
+        }
+    </script>
+
+</body>
+</html>
